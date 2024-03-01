@@ -1,3 +1,5 @@
+import Shout from "./components/Shout";
+import SumOfTwo from "./components/SumOfTwo";
 import ImageFrame from "./imageFrame";
 import test from "./test.jpeg"; 
 
@@ -30,9 +32,7 @@ const Footer = () => <p>(C) 2023</p>
 
 const f = <p>Foobar</p> 
 
-function Shout(props){
-  return <div>{props.msg.toUpperCase()}</div>
-}
+
 
 
 
@@ -49,7 +49,10 @@ function App() {
       <Alert msg="Yay checking out" bgColor="green"/>
       <Footer/>
       {f}
-      <Shout msg="I can do a component"/>
+      
+      <Shout msg="This is a shout messagee"/>
+      <SumOfTwo n1={2} n2={3}/>
+      <SumOfTwo n1={parseInt("2")} n2={parseInt("3")}/>
       </>
   );
 }
