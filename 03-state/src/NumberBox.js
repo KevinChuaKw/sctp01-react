@@ -1,4 +1,4 @@
-import {useState} from 'react'; 
+import { useState } from 'react';
 
 
 export default function NumberBox() {
@@ -16,27 +16,37 @@ export default function NumberBox() {
     // Any state variable change, the component function
     // is called again and it will be the most updated
 
-    let [count, setCount] = useState(0); 
+    let [count, setCount] = useState(0);
 
     const boxStyle = {
         width: "50px",
         height: "50px",
         border: "1px solid black",
-        padding:"10px"
+        padding: "10px"
+    }
+
+    const getColor = () => {
+        if (count % 2 == 0) {
+            return "green";
+        } else {
+            return "red";
+        }
     }
 
     const clicked = () => {
         // For react to know that a state variable has changed
         // is to use the mutator function
         // setCount(count + 1); <-- not ideal
-        setCount( ()=>{
-            return count + 1
-        })
+        setCount((prevCount) => prevCount + 1);
     }
+    // All the set functions are async
 
-    return <div style={boxStyle} onClick={clicked}
-
-    >
-        {count}
+    return <div style={boxStyle} onClick={clicked}>
+        <p style = {{
+            color:getColor()
+            }}>
+            {count}
+            </p>
+            
     </div>
 }
